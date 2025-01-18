@@ -17,7 +17,8 @@ public class BMICalculator {
     }
 
     public double calculateBMI() {
-        return getBodyWeight() / (getBodyHeight() * getBodyHeight());
+        double bmi = getBodyWeight() / ((getBodyHeight() / 100.0) * (getBodyHeight() / 100.0));
+        return Math.round(bmi * 100.0) / 100.0;
     }
 
     public int calculateBMICategory() {
