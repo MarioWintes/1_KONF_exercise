@@ -50,4 +50,11 @@ public class BMITest {
         int expectedCategory = 1;
         Assertions.assertEquals(expectedCategory, bmiCalculator.calculateBMICategory());
     }
+
+    @Test
+    @DisplayName("BMI-Category-Name-Test")
+    void testBMICategoryName() {
+        String expectedCategoryName = "Übergewicht";
+        Assertions.assertEquals(expectedCategoryName, bmiCalculator.getBMICategoryName());
+    }
 }
