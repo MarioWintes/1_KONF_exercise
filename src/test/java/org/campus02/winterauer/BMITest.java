@@ -13,6 +13,7 @@ public class BMITest {
     private int expectedHeight;
     private double expectedWeight;
     private char expectedGender;
+    private double expectedBMI;
 
     @BeforeEach
     public void setUp() {
@@ -21,6 +22,8 @@ public class BMITest {
         expectedHeight = 185;
         expectedWeight = 95;
         expectedGender = 'M';
+        expectedBMI = expectedWeight / ((expectedHeight / 100.0) * (expectedHeight / 100.0));
+        expectedBMI = Math.round(expectedBMI * 100.0) / 100.0;
 
         bmiCalculator = new BMICalculator(expectedFirstName, expectedLastName, expectedHeight, expectedWeight, expectedGender);
     }
@@ -38,9 +41,13 @@ public class BMITest {
     @Test
     @DisplayName("BMI-Calculation-Test")
     void testBMICalculation() {
-        double expectedBMI = expectedWeight / ((expectedHeight / 100.0) * (expectedHeight / 100.0));
-        expectedBMI = Math.round(expectedBMI * 100.0) / 100.0;
         Assertions.assertEquals(expectedBMI, bmiCalculator.calculateBMI());
+    }
 
+    @Test
+    @DisplayName("BMI-Category-Test")
+    void testBMICategory() {
+        int expectedCategory = 1;
+        Assertions.assertEquals(expectedCategory, bmiCalculator.calculateBMICategory());
     }
 }
