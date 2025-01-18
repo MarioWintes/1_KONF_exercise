@@ -13,7 +13,14 @@ public class BMICalculator {
         this.lastName = lastName;
         this.bodyHeight = bodyHeight;
         this.bodyWeight = bodyWeight;
-        this.gender = gender;
+        switch (gender) {
+            case 'M':
+            case 'W':
+                this.gender = gender;
+                break;
+            default:
+                this.gender = 'U';
+        }
     }
 
     public double calculateBMI() {
@@ -23,32 +30,33 @@ public class BMICalculator {
 
     public int calculateBMICategory() {
         double bmi = calculateBMI();
+        int category = 0;
         if (gender == 'M') {
             if (bmi < 16.0) {
-                return -2;
+                category = -2;
             } else if (bmi < 18.4) {
-                return -1;
+                category = -1;
             } else if (bmi < 24.9) {
-                return 0;
+                category = 0;
             } else if (bmi < 34.9) {
-                return 1;
+                category = 1;
             } else {
-                return 2;
+                category = 2;
             }
-        } else if (gender == 'F') {
+        } else if (gender == 'W') {
             if (bmi < 15.0) {
-                return -2;
+                category = -2;
             } else if (bmi < 17.4) {
-                return -1;
+                category = -1;
             } else if (bmi < 23.9) {
-                return 0;
+                category = 0;
             } else if (bmi < 33.9) {
-                return 1;
-            } else {
-                return 2;
+                category = 1;
+            } else if (bmi > 33.9) {
+                category = 2;
             }
         }
-        return 0;
+        return category;
     }
 
     public String getBMICategoryName() {
