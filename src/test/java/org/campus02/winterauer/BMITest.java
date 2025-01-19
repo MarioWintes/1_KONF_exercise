@@ -15,7 +15,7 @@ public class BMITest {
 
     @BeforeEach
     public void setUp() {
-        person1 = new BMICalculator("Hermann", "Maier", 180, 120.0, 'M');
+        person1 = new BMICalculator("Fibich", "Maier", 180, 120.0, 'M');
         person2 = new BMICalculator("Herta", "Müller", 170, 70.0, 'W');
         person3 = new BMICalculator("Sabine", "Müller", 170, 60.0, 'W');
         person4 = new BMICalculator("Alex", "Müller", 170, 50.0, 'M');
